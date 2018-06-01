@@ -43,14 +43,9 @@ class Book
       
     //Здесь должно идти сохранение ваших книг
         try {
-            if (!empty($this->data)) {
                 $this->data = $this->connection->prepare("INSERT INTO books (title, author, isbn)
-                    VALUES('".$_POST["title"]."','".$_POST["author"]."','".$_POST["isbn"]."')")->execute();
-                } else {
-                    echo 'Поля обязательны для заполнения!';
-                }
-
-            }
+                    VALUES('".$_POST["title"]."','".$_POST["author"]."','".$_POST["isbn"]."')")->execute();    
+        }    
 
         catch (PDOException $e)
         {
@@ -64,10 +59,11 @@ class Book
    
         // Здесть нужно создать запрос и вернуть данных о книгах
         try {
-        $books = $this->connection->query("SELECT * FROM books")->fetchAll();
+            $books = $this->connection->query("SELECT * FROM books")->fetchAll();
 
-        return $books;
-        
+            return $books;
+
+        }
         catch (PDOException $e)
         {
             echo $e->getMessage();
