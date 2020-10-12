@@ -53,7 +53,7 @@ if (isset($_POST['save'])) {
             <button type="submit" class="btn btn-primary" name="save">Сохранить</button>
           </form>
 
-          <table class="table">
+          <table class="table test">
             <thead>
                 <tr>
                 <th scope="col">#</th>
